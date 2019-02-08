@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorCommon">#969696</color>
+    <color name="colorRare">#264491</color>
+    <color name="colorEpic">#864787</color>
+    <color name="colorLegendary">#ffa505</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBrown">#b44900</color>
+    <color name="colorYellow">#f9fa6a</color>
+    <color name="white">#ffffff</color>
+</resources>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Deck Box</string>
+    <string name="action_settings">Settings</string>
+    <string name="deck_code_edit_text_hint">Paste deck code here</string>
+    <string name="title_activity_deck_box">DeckBoxActivity</string>
+    <string name="action_delete">Delete Deck</string>
+    <string name="action_delete_all">Delete All Decks</string>
+    <string name="action_copy">Copy Deck</string>
+    <string name="action_edit_deck_name">Edit Deck Name</string>
+    <string name="action_share_all_decks">Share All Decks</string>
+    <string name="action_import_all_decks">Import All Decks</string>
+    <string name="action_update">Update</string>
+    <string name="search_title">Find Decks</string>
+    <string name="search_hint">Find Decks...</string>
+    <string name="action_filter_by_format">Filter By Format</string>
+    <string name="action_deckshot">Deckshot</string>
+    <string name="action_share">Share Deck</string>
+</resources>

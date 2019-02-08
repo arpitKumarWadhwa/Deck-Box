@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_delete_all"
+        android:orderInCategory="104"
+        android:title="@string/action_delete_all"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_share_all_decks"
+        android:orderInCategory="101"
+        android:title="@string/action_share_all_decks"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_import_all_decks"
+        android:orderInCategory="102"
+        android:title="@string/action_import_all_decks"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_update"
+        android:orderInCategory="103"
+        android:title="@string/action_update"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search_icon"
+        android:title="@string/search_title"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="collapseActionView|ifRoom" />
+    <item
+        android:id="@+id/action_filter_by_format"
+        android:orderInCategory="99"
+        android:title="@string/action_filter_by_format"
+        android:icon="@drawable/all_icon"
+        app:showAsAction="always" />
+
+</menu>
