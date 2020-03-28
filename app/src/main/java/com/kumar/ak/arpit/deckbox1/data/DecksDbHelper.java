@@ -20,7 +20,38 @@ public class DecksDbHelper extends SQLiteOpenHelper {
             + DecksContract.CardsEntry.COLUMN_CARD_COST + " INTEGER, "
             + DecksContract.CardsEntry.COLUMN_CARD_RARITY + " INTEGER, "
             + DecksContract.CardsEntry.COLUMN_CARD_TYPE + " INTEGER, "
-            + DecksContract.CardsEntry.COLUMN_CARD_ID + " TEXT);";
+            + DecksContract.CardsEntry.COLUMN_CARD_ID + " TEXT, "
+            + DecksContract.CardsEntry.COLUMN_CARD_CLASS + " INTEGER);";
+
+    private static final String CARDS_TABLE_ruRU = "CREATE TABLE " + "cards_ruRU" + " ("
+            + DecksContract.CardsEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + DecksContract.CardsEntry.COLUMN_CARD_DBFID + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_NAME + " TEXT, "
+            + DecksContract.CardsEntry.COLUMN_CARD_COST + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_RARITY + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_TYPE + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_ID + " TEXT, "
+            + DecksContract.CardsEntry.COLUMN_CARD_CLASS + " INTEGER);";
+
+    private static final String CARDS_TABLE_koKR = "CREATE TABLE " + "cards_koKR" + " ("
+            + DecksContract.CardsEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + DecksContract.CardsEntry.COLUMN_CARD_DBFID + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_NAME + " TEXT, "
+            + DecksContract.CardsEntry.COLUMN_CARD_COST + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_RARITY + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_TYPE + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_ID + " TEXT, "
+            + DecksContract.CardsEntry.COLUMN_CARD_CLASS + " INTEGER);";
+
+    private static final String CARDS_TABLE_zhCN = "CREATE TABLE " + "cards_zhCN" + " ("
+            + DecksContract.CardsEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + DecksContract.CardsEntry.COLUMN_CARD_DBFID + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_NAME + " TEXT, "
+            + DecksContract.CardsEntry.COLUMN_CARD_COST + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_RARITY + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_TYPE + " INTEGER, "
+            + DecksContract.CardsEntry.COLUMN_CARD_ID + " TEXT, "
+            + DecksContract.CardsEntry.COLUMN_CARD_CLASS + " INTEGER);";
 
     private static final String DECKS_TABLE = "CREATE TABLE " + DecksContract.DecksEntry.TABLE_NAME + " ("
             + DecksContract.DecksEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -49,6 +80,9 @@ public class DecksDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         //Create the Cards Table
         db.execSQL(CARDS_TABLE);
+        db.execSQL(CARDS_TABLE_ruRU);
+        db.execSQL(CARDS_TABLE_koKR);
+        db.execSQL(CARDS_TABLE_zhCN);
         db.execSQL(DECKS_TABLE);
     }
 

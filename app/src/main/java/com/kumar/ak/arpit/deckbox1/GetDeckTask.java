@@ -68,8 +68,16 @@ class GetDeckTask extends AsyncTask<URL, Integer, String> {
                 cv.put(DecksContract.CardsEntry.COLUMN_CARD_COST, allCards.get(i).getCost());
                 cv.put(DecksContract.CardsEntry.COLUMN_CARD_RARITY, allCards.get(i).getRarity());
                 cv.put(DecksContract.CardsEntry.COLUMN_CARD_TYPE, allCards.get(i).getType());
+                cv.put(DecksContract.CardsEntry.COLUMN_CARD_CLASS, allCards.get(i).getCardClass());
+                //cv.put(DecksContract.CardsEntry.COLUMN_CARD_TEXT, allCards.get(i).getCardText());
 
-                long result = db.insert(DecksContract.CardsEntry.TABLE_NAME, null, cv);
+                /*JSONObject json = new JSONObject();
+                json.put("uniqueArrays", new JSONArray(allCards.get(i).getMechanics()));
+                String mechanicsList = json.toString();
+
+                cv.put(DecksContract.CardsEntry.COLUMN_CARD_MECHANICS, mechanicsList);
+*/
+                long result = db.insert("cards_zhCN", null, cv);
 
                 if (result == -1) {
                     throw new Exception();
@@ -77,7 +85,7 @@ class GetDeckTask extends AsyncTask<URL, Integer, String> {
 
             }
             listener.onTaskComplete();
-            Log.e("Tas ", "cpmplete");
+            Log.e("Tas ", "complete");
         } catch (Exception e) {
             listener.onTaskFailed();
         } finally {
@@ -114,7 +122,13 @@ class GetDeckTask extends AsyncTask<URL, Integer, String> {
                 String name = cardObject.getString("name");
 
                 //Get rarity
-                String rarityString = cardObject.getString("rarity");
+                String rarityString;
+                try {
+                    rarityString = cardObject.getString("rarity");
+                }catch (Exception e){
+                    e.printStackTrace();
+                    continue;
+                }
 
                 //Convert rairty to an integer constant
                 int rarity = Cards.tellRarityInInteger(rarityString);
@@ -134,7 +148,34 @@ class GetDeckTask extends AsyncTask<URL, Integer, String> {
                     cost = -1; //Non valid mana cost for heroes
                 }
 
+                //ArrayList<String> mechanics = new ArrayList<String>();
+
+                String cardClassString = cardObject.getString("cardClass");
+                int cardClass = Cards.tellCardClassInInteger(cardClassString);
+
+                /*String cardText;
+                try {
+                    cardText = cardObject.getString("text");
+                    Log.e("fuck", cardText);
+                }catch (Exception e){
+                    cardText = "NA";
+                }
+
+
+                try {
+                    JSONArray mechanicsJSONArray = cardObject.getJSONArray("mechanics");
+
+                    for (int j = 0; j < mechanicsJSONArray.length(); j++) {
+                        mechanics.add(mechanicsJSONArray.getString(j));
+                    }
+                }catch (Exception e){
+                    mechanics.add("NA");
+                }*/
+
                 Cards tempCard = new Cards(cardID, dbfid, name, cost, rarity, type, 0);
+                tempCard.setCardClass(cardClass);
+             /*   tempCard.setCardText(cardText);
+                tempCard.setMechanics(mechanics);*/
 
                 //Add the new card to the list of cards
                 cards.add(tempCard);
@@ -142,6 +183,9 @@ class GetDeckTask extends AsyncTask<URL, Integer, String> {
             }
         } catch (JSONException e) {
             listener.onTaskFailed();
+            e.printStackTrace();
+        } finally {
+            Log.e("s", String.valueOf(cards.size()));
         }
 
         return cards;

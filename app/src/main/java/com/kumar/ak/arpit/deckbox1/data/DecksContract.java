@@ -58,6 +58,12 @@ public final class DecksContract {
          */
         public final static String COLUMN_CARD_TYPE = "type";
 
+        public final static String COLUMN_CARD_CLASS = "cardClass"; //int
+
+        public final static String COLUMN_CARD_TEXT = "cardText"; //String
+
+        public final static String COLUMN_CARD_MECHANICS = "mechanics"; //ArrayList<String>
+
         //Constant Values
         public final static String RARITY_FREE = "FREE";
         public final static String RARITY_COMMON = "COMMON";
@@ -192,6 +198,7 @@ public final class DecksContract {
         public static final String CLASS_WARLOCK = "Warlock";
         public static final String CLASS_MAGE = "Mage";
         public static final String CLASS_PRIEST = "Priest";
+        public static final String CLASS_DEMON_HUNTER = "Demon Hunter";
         public static final String CLASS_UNKNOWN = "Unknown Class";
 
     }

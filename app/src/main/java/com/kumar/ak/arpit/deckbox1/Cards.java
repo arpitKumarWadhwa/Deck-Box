@@ -12,6 +12,7 @@ import com.kumar.ak.arpit.deckbox1.data.DecksContract;
 import com.kumar.ak.arpit.deckbox1.data.DecksDbHelper;
 
 import java.net.URL;
+import java.util.ArrayList;
 
 public class Cards {
     private static final int RARITY_UNKNOWN = -1;
@@ -27,6 +28,19 @@ public class Cards {
     private static final int TYPE_SPELL = 2; //SPELL
     private static final int TYPE_WEAPON = 3; //WEAPON
 
+    public static final int CARD_CLASS_INVALID = -1;
+    public static final int CARD_CLASS_WARRIOR = 0;
+    public static final int CARD_CLASS_HUNTER = 1;
+    public static final int CARD_CLASS_PALADIN = 2;
+    public static final int CARD_CLASS_ROGUE = 3;
+    public static final int CARD_CLASS_DRUID = 4;
+    public static final int CARD_CLASS_SHAMAN = 5;
+    public static final int CARD_CLASS_MAGE = 6;
+    public static final int CARD_CLASS_PRIEST = 7;
+    public static final int CARD_CLASS_WARLOCK = 8;
+    public static final int CARD_CLASS_DEMON_HUNTER = 10;
+    public final static int CARD_CLASS_NEUTRAL = 9;
+
     private String cardId; //id
     private int dbfid; //For generating deck codes. dbfid
     private String name; //name
@@ -34,6 +48,9 @@ public class Cards {
     private int rarity;//rarity
     private int type; //Type of card i.e hero/minion/spell/weapon. type
     private int quantity; //Quantity of the card in a deck. Does not go in a database.
+    private int cardClass;
+    private String cardText;
+    private ArrayList<String> mechanics;
     private URL cardTileUrl; //The card tile image used for generating in-game style decklist(layout1)
 
     public String getCardId() {
@@ -77,6 +94,30 @@ public class Cards {
     }
 
     public Cards() {
+    }
+
+    public int getCardClass() {
+        return cardClass;
+    }
+
+    public void setCardClass(int cardClass) {
+        this.cardClass = cardClass;
+    }
+
+    public String getCardText() {
+        return cardText;
+    }
+
+    public void setCardText(String cardText) {
+        this.cardText = cardText;
+    }
+
+    public ArrayList<String> getMechanics() {
+        return mechanics;
+    }
+
+    public void setMechanics(ArrayList<String> mechanics) {
+        this.mechanics = mechanics;
     }
 
     //TODO: Remove the quantity parameter from the constructor
@@ -158,6 +199,36 @@ public class Cards {
                 return TYPE_WEAPON;
             default:
                 return TYPE_UNKNOWN;
+        }
+
+    }
+
+    public static int tellCardClassInInteger(String cardClass){
+        switch (cardClass){
+            case "WARRIOR":
+                return CARD_CLASS_WARRIOR;
+            case "HUNTER":
+                return CARD_CLASS_HUNTER;
+            case "PALADIN":
+                return CARD_CLASS_PALADIN;
+            case "ROGUE":
+                return CARD_CLASS_ROGUE;
+            case "DRUID":
+                return CARD_CLASS_DRUID;
+            case "SHAMAN":
+                return CARD_CLASS_SHAMAN;
+            case "MAGE":
+                return CARD_CLASS_MAGE;
+            case "PRIEST":
+                return CARD_CLASS_PRIEST;
+            case "WARLOCK":
+                return CARD_CLASS_WARLOCK;
+            case "NEUTRAL":
+                return CARD_CLASS_NEUTRAL;
+            case "DEMONHUNTER":
+                return CARD_CLASS_DEMON_HUNTER;
+                default:
+                    return CARD_CLASS_INVALID;
         }
     }
 
