@@ -34,11 +34,11 @@ public class SplashScreenActivity extends AppCompatActivity {
     //private boolean isTaskCompleted = false;
 
     private static QueryUtils httpHelper = new QueryUtils();
-    String CARDS_URL = "https://api.hearthstonejson.com/v1/44222/enUS/cards.collectible.json";
-    String CARDS_URL_ruRU = "https://api.hearthstonejson.com/v1/44222/ruRU/cards.collectible.json";
-    String CARDS_URL_koKR = "https://api.hearthstonejson.com/v1/44222/koKR/cards.collectible.json";
-    String CARDS_URL_zhCN = "https://api.hearthstonejson.com/v1/44222/zhCN/cards.collectible.json";
-    String CARDS_URL_zhTW = "https://api.hearthstonejson.com/v1/44222/zhTW/cards.collectible.json";
+    String CARDS_URL = "https://api.hearthstonejson.com/v1/latest/enUS/cards.collectible.json";
+    String CARDS_URL_ruRU = "https://api.hearthstonejson.com/v1/latest/ruRU/cards.collectible.json";
+    String CARDS_URL_koKR = "https://api.hearthstonejson.com/v1/latest/koKR/cards.collectible.json";
+    String CARDS_URL_zhCN = "https://api.hearthstonejson.com/v1/latest/zhCN/cards.collectible.json";
+    String CARDS_URL_zhTW = "https://api.hearthstonejson.com/v1/latest/zhTW/cards.collectible.json";
 
     //ArrayList<Cards> allCards = new ArrayList<Cards>();
 
@@ -48,9 +48,9 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
             //setUpDatabase(CARDS_URL);
-            //setUpDatabase(CARDS_URL_ruRU);
+            setUpDatabase(CARDS_URL_ruRU);
             //setUpDatabase(CARDS_URL_koKR);
-            setUpDatabase(CARDS_URL_zhCN);
+            //setUpDatabase(CARDS_URL_zhCN);
 
 
        /*     Intent i = new Intent(this, DeckBoxActivity.class);

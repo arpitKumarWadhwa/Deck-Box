@@ -77,7 +77,7 @@ class GetDeckTask extends AsyncTask<URL, Integer, String> {
 
                 cv.put(DecksContract.CardsEntry.COLUMN_CARD_MECHANICS, mechanicsList);
 */
-                long result = db.insert("cards_zhCN", null, cv);
+                long result = db.insert("cards_ruRU", null, cv);
 
                 if (result == -1) {
                     throw new Exception();
